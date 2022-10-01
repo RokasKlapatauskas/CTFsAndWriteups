@@ -1,2 +1,0 @@
-# CTFsAndWriteups
-CTFs &amp; Writeups 

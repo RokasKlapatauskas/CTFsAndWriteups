@@ -24,10 +24,16 @@ Initally, we see some fairly routine GET requests. The time spacing between each
 For the majority of the rest of the log file, we see some extremely suspicious activity. We see hundreds of similar requests per second amounting to around 8000 requests in 30 seconds. This is clearly impossible to do by hand and therefore must be the result of some automated tool, as suggested in the question. The UserAgent field gives us the answer to our question ``` "Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:006922)"``` 
 
 ```
-Nikto is an Open Source (GPL) web server scanner which performs comprehensive tests against web servers for multiple items, including over 6700 potentially dangerous files/programs, checks for outdated versions of over 1250 servers,and version specific problems on over 270 servers. 
-It also checks for server configuration items such as the presence of multiple index files, HTTP server options, and will attempt to identify installed web servers and software. 
+Nikto is an Open Source (GPL) web server scanner which performs comprehensive tests against web servers for multiple items, 
+including over 6700 potentially dangerous files/programs, checks for outdated versions of over 1250 servers,
+and version specific problems on over 270 servers. 
+It also checks for server configuration items such as the presence of multiple index files, HTTP server options, 
+and will attempt to identify installed web servers and software. 
 Scan items and plugins are frequently updated and can be automatically updated.
-Nikto is not designed as a stealthy tool. It will test a web server in the quickest time possible, and is obvious in log files or to an IPS/IDS. However, there is support for LibWhisker's anti-IDS methods in case you want to give it a try (or test your IDS system).
+
+Nikto is not designed as a stealthy tool. It will test a web server in the quickest time possible,
+and is obvious in log files or to an IPS/IDS. 
+However, there is support for LibWhisker's anti-IDS methods in case you want to give it a try.
 ```
 ## Question 2
 ```

@@ -14,8 +14,8 @@ Open up the logs in any text editor / software you wish and we can begin with th
 ## Question 1
 ```
 Which automated scan tool did attacker use for web reconnansiance?
-```
-<img src="Screenshot_1.png" style="height: auto; width:auto;"/>
+
+<img src="https://user-images.githubusercontent.com/106356256/193424515-5e2677d5-c6f5-4e9f-8302-836b5b0486dd.png" style="height: auto; width:auto;"/>
 
 Initally, we see some fairly routine GET requests. The time spacing between each requests is fairly fast, but not unreasonable, furthermore, they are most likely linked to a single page e.g. facebook, twitter, linkedin logos so the time shouldn't really be considered. Lastly, the UserAgent section of the request indicates a normal system ```"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:89.0) Gecko/20100101 Firefox/89.0"```  we should also take note of the ip address for threat intelligence purposes, as it is likely we will have many other connections in these logs and should therefore link malicious activity to specific actors to  filter their traffic in the future.
 

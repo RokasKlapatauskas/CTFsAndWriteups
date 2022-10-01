@@ -19,8 +19,7 @@ Which automated scan tool did attacker use for web reconnansiance?
 
 Initally, we see some fairly routine GET requests. The time spacing between each requests is fairly fast, but not unreasonable, furthermore, they are most likely linked to a single page e.g. facebook, twitter, linkedin logos so the time shouldn't really be considered. Lastly, the UserAgent section of the request indicates a normal system ```"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:89.0) Gecko/20100101 Firefox/89.0"```  we should also take note of the ip address for threat intelligence purposes, as it is likely we will have many other connections in these logs and should therefore link malicious activity to specific actors to  filter their traffic in the future.
 
-
-<img src="Screenshot_2.png" style="height: auto; width:auto;"/>
+<img src="[Screenshot_2.png](https://user-images.githubusercontent.com/106356256/193424581-60c0a18d-5287-4160-a184-f6b9b41c51d2.png)" style="height: auto; width:auto;"/>
 
 For the majority of the rest of the log file, we see some extremely suspicious activity. We see hundreds of similar requests per second amounting to around 8000 requests in 30 seconds. This is clearly impossible to do by hand and therefore must be the result of some automated tool, as suggested in the question. The UserAgent field gives us the answer to our question ``` "Mozilla/5.00 (Nikto/2.1.6) (Evasions:None) (Test:006922)"``` 
 ```
@@ -30,9 +29,10 @@ Nikto is not designed as a stealthy tool. It will test a web server in the quick
 ```
 ## Question 2
 ```
+
 After web reconnansiance activity, which technique did attacker use for directory listing discovery?
 ```
-<img src="Screenshot_3.png" style="height: auto; width:auto;"/>
+<img src="https://user-images.githubusercontent.com/106356256/193424590-40a33d6c-a78f-44aa-915f-58cb963fec0a.png" style="height: auto; width:auto;"/>
 
 After sifting through all of the Nikto tests, we see more of the same. Automated sequential searching, with a ridiculous amount of requests per second. This kind of trial and error tactic is known as brute forcing, and can be used to attack many things, such as passwords, if the correct measures aren't in place to stop it. In this case, the attacker is brute forcing the directories of the web server, which gives us the answer to question 2.
 
@@ -40,7 +40,7 @@ After sifting through all of the Nikto tests, we see more of the same. Automated
 ```
 What is the third attack type after directory listing discovery?
 ```
-<img src="Screenshot_4.png" style="height: auto; width:auto;"/>
+<img src="https://user-images.githubusercontent.com/106356256/193424596-bf38ee0c-8d88-4a56-be06-bd77f83ab90b.png" style="height: auto; width:auto;"/>
 
 Again we have to sift through all of the directory brute forcing requests, before we arrive at the third attack. Again, we see more of the same. Repetitive POST requests to login.php every few seconds. As previously mentioned, this is another form of Brute forcing. Given that login.php is being attacked it is safe to assume that the attacker is attempting to find a weak username/password that he can log in to the website with.
 
@@ -48,7 +48,7 @@ Again we have to sift through all of the directory brute forcing requests, befor
 ```
 Is the third attack success?
 ```
-<img src="Screenshot_5.png" style="height: auto; width:auto;"/>
+<img src="https://user-images.githubusercontent.com/106356256/193424609-96163187-38ce-4442-84fc-2650938e415b.png" style="height: auto; width:auto;"/>
 
 Upon viewing the end of the login.php logs, we unfortunately see evidence the attack was successful. We see a POST request with a 302 response code, this indicates that a redirect will occur, following this we see a GET request to portal.php. This is enough evidence to assume that the attacker successfully logged in and was then redirected to the home page, as is common on many websites.
 
@@ -56,7 +56,7 @@ Upon viewing the end of the login.php logs, we unfortunately see evidence the at
 ```
 What is the name of fourth atttack?
 ```
-<img src="Screenshot_6.png" style="height: auto; width:auto;"/>
+<img src="https://user-images.githubusercontent.com/106356256/193424629-9f570409-d30e-44db-a30a-e9bdad54e325.png" style="height: auto; width:auto;"/>
 
 Nearing the end of the log file, we find evidence of the fourth attack and the answers our questions 5 & 6. 
 
@@ -70,7 +70,7 @@ For example, if whoami returned information that the user was a privilaged admin
 ```
 Is there any persistency clue for the victim machine in the log file ? If yes, what is the related payload?
 ```
-<img src="Screenshot_8.png" style="height: auto; width:auto;"/>
+<img src="https://user-images.githubusercontent.com/106356256/193424669-c595704b-6c89-468b-a4a5-ed2873b5dc77.png" style="height: auto; width:auto;"/>
 
 For the final question, we are asked if there is any evidence for persistence. The final two logs show us just that. The payload is URL encoded so we will decode it for easier reading.
 The payload is as follows:
